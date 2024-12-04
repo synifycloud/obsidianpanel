@@ -2,6 +2,7 @@
 
 namespace Pterodactyl\Models;
 
+use Laravel\Cashier\Billable;
 use Pterodactyl\Rules\Username;
 use Pterodactyl\Facades\Activity;
 use Illuminate\Support\Collection;
@@ -92,6 +93,7 @@ class User extends Model implements
     use Notifiable;
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
+    use Billable;
 
     public const USER_LEVEL_USER = 0;
     public const USER_LEVEL_ADMIN = 1;
