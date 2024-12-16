@@ -26,10 +26,10 @@ module.exports = {
                 black: '#131a20',
                 // "primary" and "neutral" are deprecated, prefer the use of "blue" and "gray"
                 // in new code.
-                primary: colors.blue,
-                gray: gray,
-                neutral: gray,
-                cyan: colors.cyan,
+                primary: colors.slate,
+                gray: colors.slate,
+                neutral: colors.slate,
+                cyan: colors.slate,
             },
             fontSize: {
                 '2xs': '0.625rem',
