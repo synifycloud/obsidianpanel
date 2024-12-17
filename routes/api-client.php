@@ -7,6 +7,7 @@ use Pterodactyl\Http\Middleware\Activity\AccountSubject;
 use Pterodactyl\Http\Middleware\RequireTwoFactorAuthentication;
 use Pterodactyl\Http\Middleware\Api\Client\Server\ResourceBelongsToServer;
 use Pterodactyl\Http\Middleware\Api\Client\Server\AuthenticateServerAccess;
+use Pterodactyl\Http\Controllers\Api\Client\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -150,8 +151,6 @@ Route::group([
 */
 Route::group([
     'prefix' => '/billing',
-    'middleware' => [
-    ],
 ], function () {
-    //Route::get('/', [Client\Servers\ServerController::class, 'index'])->name('api:client:server.view');
+    Route::get('/', [Client\Billing\ProductsController::class, 'index'])->name('api:client.billing.products');
 });
