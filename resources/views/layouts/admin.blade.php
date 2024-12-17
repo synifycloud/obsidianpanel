@@ -26,7 +26,7 @@
             {!! Theme::css('vendor/sweetalert/sweetalert.min.css?t={cache-version}') !!}
             {!! Theme::css('vendor/animate/animate.min.css?t={cache-version}') !!}
             {!! Theme::css('css/obsidian.css?t={cache-version}') !!}
-            <script src="https://kit.fontawesome.com/6f904e4ebb.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
             <!--[if lt IE 9]>
@@ -159,12 +159,6 @@
                     @yield('content')
                 </section>
             </div>
-            <footer class="main-footer">
-                <div class="pull-right small text-gray" style="margin-right:10px;margin-top:-7px;">
-                    <strong><i class="fa fa-fw {{ $appIsGit ? 'fa-git-square' : 'fa-code-fork' }}"></i></strong> {{ $appVersion }}<br />
-                    <strong><i class="fa fa-fw fa-clock-o"></i></strong> {{ round(microtime(true) - LARAVEL_START, 3) }}s
-                </div>
-            </footer>
         </div>
         @section('footer-scripts')
             <script src="/js/keyboard.polyfill.js" type="application/javascript"></script>
