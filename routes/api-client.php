@@ -140,3 +140,18 @@ Route::group([
         Route::put('/docker-image', [Client\Servers\SettingsController::class, 'dockerImage']);
     });
 });
+/*
+|--------------------------------------------------------------------------
+| Client Control API
+|--------------------------------------------------------------------------
+|
+| Endpoint: /api/client/billing
+|
+*/
+Route::group([
+    'prefix' => '/billing',
+    'middleware' => [
+    ],
+], function () {
+    //Route::get('/', [Client\Servers\ServerController::class, 'index'])->name('api:client:server.view');
+});
