@@ -5,7 +5,7 @@
 @endsection
 
 @section('content-header')
-    <h1>Panel Settings<small>Configure Pterodactyl to your liking.</small></h1>
+    <h1>Products<small>Display all products</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
         <li class="active">Products</li>
@@ -17,7 +17,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Panel Settings</h3>
+                    <h3 class="box-title">Products</h3>
                 </div>
             </div>
         </div>
