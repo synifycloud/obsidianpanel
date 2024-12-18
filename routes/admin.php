@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Pterodactyl\Http\Controllers\Admin;
+use Pterodactyl\Http\Controllers\Admin\ProductController;
 use Pterodactyl\Http\Middleware\Admin\Servers\ServerInstalled;
 
 Route::get('/', [Admin\BaseController::class, 'index'])->name('admin.index');
@@ -236,5 +237,11 @@ Route::group(['prefix' => 'nests'], function () {
 |
 */
 Route::group(['prefix' => 'products'], function () {
-    Route::get('/', [Admin\ProductController::class, 'index'])->name('admin.products');
+    Route::get('/', [ProductController::class, 'index'])->name('admin.products');
+    Route::get('/new', [ProductController::class, 'create'])->name('admin.products.new');
+    Route::post('/new', [ProductController::class, 'store'])->name('admin.products.store');
+    Route::get('/view/{product:id}', [ProductController::class, 'view'])->name('admin.products.view');
+    Route::get('/edit/{product:id}', [ProductController::class, 'edit'])->name('admin.products.edit');
+    Route::put('/edit/{product:id}', [ProductController::class, 'update'])->name('admin.products.update');
+    Route::delete('/delete/{product:id}', [ProductController::class, 'destroy'])->name('admin.products.delete');
 });

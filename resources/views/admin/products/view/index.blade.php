@@ -1,14 +1,15 @@
 @extends('layouts.admin')
 
 @section('title')
-    List Products
+    {{ $product->name }}
 @endsection
 
 @section('content-header')
-    <h1>Products<small>All products available on the system.</small></h1>
+    <h1>{{ $product->name }}<small>{{ $product->description }}</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">Admin</a></li>
-        <li class="active">Products</li>
+        <li><a href="{{ route('admin.products') }}">Products</a></li>
+        <li class="active">{{ $product->name }}</li>
     </ol>
 @endsection
 
@@ -35,24 +36,34 @@
                     <tbody>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Description</th>
+                            <th>Threads</th>
+                            <th>Memory</th>
+                            <th>Allocations</th>
+                            <th>Databases</th>
+                            <th>Backups</th>
+                            <th>Storage</th>
+                            <th>Egg ID</th>
+                            <th>Price</th>
                         </tr>
-                        @foreach ($products as $product)
+                        @foreach ($product->options as $option)
                             <tr data-product="{{ $product->id }}">
-                                <td><code>{{ $product->id }}</code></td>
-                                <td><a href="{{ route('admin.products.view', $product->id) }}">{{ $product->name }}</a></td>
-                                <td>{{ $product->description }}</td>                               
+                                <td><code>{{ $option->id }}</code></td>
+                                <td>{{ $option->cpu_limit }}%</td>
+                                <td>{{ $option->memory }}MB</td>
+                                <td>{{ $option->allocation_limit }}</td>
+                                <td>{{ $option->database_limit }}</td>
+                                <td>{{ $option->backup_limit }}</td>
+                                <td>{{ $option->storage }}MB</td>
+                                <td>{{ $option->egg_id }}</td>
+                                <td>£{{ number_format($option->price / 100, 2) }}</td>
+                                <td>
+                                    <a href="{{ route('admin.products.edit', $product->id) }}"><button type="button" class="btn btn-xs btn-primary">Edit</button></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            @if($products->hasPages())
-                <div class="box-footer with-border">
-                    <div class="col-md-12 text-center">{!! $products->appends(['filter' => Request::input('filter')])->render() !!}</div>
-                </div>
-            @endif
         </div>
     </div>
 </div>
