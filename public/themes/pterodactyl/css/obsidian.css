@@ -644,7 +644,7 @@ body {
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #33404d;
+    background-color: #474747;
 }
 
 a {
@@ -656,6 +656,10 @@ a {
 }
 
 .nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #8800ff;
+}
+
+.nav-tabs-custom>.nav-tabs>li:hover {
     border-top-color: #8800ff;
 }
 
@@ -732,7 +736,7 @@ code {
 }
 
 .btn-default {
-    background-color: #33404d;
+    background-color: #474747;
     color: #d8d8d8;
     border-color: #323232;
 }
