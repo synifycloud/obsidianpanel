@@ -18,7 +18,7 @@
     <div class="col-xs-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Product List</h3>
+                <h3 class="box-title">Configurations List</h3>
                 <div class="box-tools search01">
                     <form action="{{ route('admin.products') }}" method="GET">
                         <div class="input-group input-group-sm">
