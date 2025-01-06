@@ -1,5 +1,19 @@
 @extends('layouts.admin')
 
+@section('title')
+    Edit Product: {{ $product->name }}
+@endsection
+
+@section('content-header')
+    <h1>Edit Product: {{ $product->name }}</h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ route('admin.index') }}">Admin</a></li>
+        <li><a href="{{ route('admin.products') }}">Products</a></li>
+        <li><a href="/admin/products/view/{{ $product->id }}">{{ $product->name }}</a></li>
+        <li class="active">Edit</li>
+    </ol>
+@endsection
+
 @section('content')
 <h1>Edit Product: {{ $product->name }}</h1>
 
