@@ -4,19 +4,20 @@ namespace Pterodactyl\Http\Controllers\Api\Client\Billing;
 
 use Pterodactyl\Http\Requests\Api\Client\ClientApiRequest;
 use Pterodactyl\Http\Controllers\Api\Client\ClientApiController;
+use Pterodactyl\Models\Product;
 
 class ProductsController extends ClientApiController
 {
     /**
      * Returns a paginated set of the user's activity logs.
      */
-    public function index(ClientApiRequest $request): array
+    public function index()
     {
-        return 
-    [
-        ['id' => 1, 'name' => 'Product 1', 'price' => 100],
-        ['id' => 2, 'name' => 'Product 2', 'price' => 200],
-        ['id' => 3, 'name' => 'Product 3', 'price' => 300],
-    ];
+        $products = Product::query()
+            ->when(request('filter.*'), function ($query) {
+                $query->where('name', 'like', '%' . request('filter.*') . '%');
+            })
+            ->paginate(10);
+        return $products;
     }
 }
